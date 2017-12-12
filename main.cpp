@@ -290,7 +290,14 @@ void a19(std::vector<std::vector<bool> > &pole, int &N) {
             pole[k][i]= false;
         }
     }
-
+    for (int l = tmp; l < N; ++l) {
+        for (int i = 0; i < l+1; ++i) {
+            pole[l][i]= true;
+        }
+        for (int i = 0; i < N-l-1; ++i) {
+            pole[l][i]= false;
+        }
+    }
 
 
 }
