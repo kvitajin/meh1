@@ -183,8 +183,47 @@ void a12(std::vector<std::vector<bool> > &pole, int &N) {
 
 void a13(std::vector<std::vector<bool> > &pole, int &N) {
     int tmp=N/2;
-    for (int i = 0; i < N; ++i) {
+    for (int i = 0; i < tmp; ++i) {
+        pole[i][0]=true;
+        pole[i][tmp-1]=true;
+        pole[0][i]=true;
+        pole[tmp-1][i]=true;
+    }
+    for (int j = tmp; j < N; ++j) {
+        pole[j][N-1]=true;
+        pole[N-1][j]=true;
+        pole[j][tmp]=true;
+        pole[tmp][j]=true;
+    }
 
+}
+
+void a14(std::vector<std::vector<bool> > &pole, int &N) {
+    int tmp=N/2;
+    for (int i = 0; i < tmp; ++i) {
+        for (int j = 0; j < tmp; ++j) {
+            pole[i][j]= true;
+        }
+    }
+    for (int j = tmp; j < N; ++j) {
+        for (int i = tmp; i < N; ++i) {
+            pole[j][i]=true;
+        }
+    }
+
+}
+
+void a15(std::vector<std::vector<bool> > &pole, int &N) {
+    int tmp=N/2;
+    for (int i = 0; i < tmp; ++i) {
+        for (int j = 0; j < tmp; ++j) {
+            pole[i][j]= true;
+        }
+    }
+    for (int j = tmp; j < N; ++j) {
+        for (int i = tmp; i < N; ++i) {
+            pole[j][i]=true;
+        }
     }
 
 }
@@ -250,6 +289,13 @@ int main() {
     a12(pole, N);
     print(pole, N);
 
+    clean(pole, N);
+    a13(pole, N);
+    print(pole, N);
+
+    clean(pole, N);
+    a14(pole, N);
+    print(pole, N);
 
 
     return 0;
