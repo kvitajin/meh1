@@ -128,6 +128,23 @@ void a9(std::vector<std::vector<bool> > &pole, int &N) {
     }
 }
 
+void a10(std::vector<std::vector<bool> > &pole, int &N) {
+    for (int i = 0; i < N; ++i) {
+       if (i%2==0){
+           for (int j = 0; j < N; ++j) {
+               pole[i][j]=true;
+           }
+       }
+        if (i%4==1){
+            pole[i][N-1]=true;
+        }
+        if (i%4==3){
+            pole[i][0]=true;
+        }
+    }
+
+}
+
 
 
 
@@ -177,6 +194,9 @@ int main() {
     a9(pole, N);
     print(pole, N);
 
+    clean(pole, N);
+    a10(pole, N);
+    print(pole, N);
 
 
 
