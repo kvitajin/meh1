@@ -245,24 +245,53 @@ void a17(std::vector<std::vector<bool> > &pole, int &N) {
 
 void a18(std::vector<std::vector<bool> > &pole, int &N) {
     int tmp=N/2;
-    for (int j = 0; j < tmp; ++j) {
-        for (int i = 0; i < N; ++i) {
-            if ((i-j)%3==0){
-                pole[j][i]=true;
+    /*for (int k = 0; k < N; ++k) {
+
+        for (int j = 0; j < 4; ++j) {
+            for (int i = 0; i < N; ++i) {
+                if ((i - j) % 3 == 0) {
+                    pole[j][i] = true;
+                }
+            }
+        }
+        for (int j = 4; j < 9; ++j) {
+            for (int i = 0; i < N; ++i) {
+                if ((i + j) % 3 == 0) {
+                    pole[j][i] = true;
+                }
+            }
+        }
+    }*/
+
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
+            if (((j-i)%8)>4){
+                if ((i - j) % 3 == 0) {
+                    pole[i][j] = true;
+                }
+            } else{
+                if ((i + j) % 3 == 0) {
+                    pole[i][j] = true;
+                }
             }
         }
     }
-    for (int j = tmp; j < N; ++j) {
-        for (int i = 0; i < N; ++i) {
-            if ((i+j)%3==0){
-                pole[j][i]=true;
-            }
-        }
-    }
+
 }
 
 void a19(std::vector<std::vector<bool> > &pole, int &N) {
     int tmp=N/2;
+
+    for (int k = 0; k < tmp; ++k) {
+        for (int j = 0; j < N-k; ++j) {
+            pole[k][j]= true;
+        }
+        for (int i = 0; i < k; ++i) {
+            pole[k][i]= false;
+        }
+    }
+
+
 
 }
 
@@ -351,7 +380,9 @@ int main() {
     a18(pole, N);
     print(pole, N);
 
-
+    clean(pole, N);
+    a19(pole, N);
+    print(pole, N);
 
     return 0;
 }
