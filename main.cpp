@@ -145,6 +145,50 @@ void a10(std::vector<std::vector<bool> > &pole, int &N) {
 
 }
 
+void a11(std::vector<std::vector<bool> > &pole, int &N) {
+    for (int i = 0; i < N; ++i) {
+        if (i%2==0){
+            for (int j = 0; j < N; ++j) {
+                pole[j][i]=true;
+            }
+        }
+        if (i%4==1){
+            pole[N-1][i]=true;
+        }
+        if (i%4==3){
+            pole[0][i]=true;
+        }
+    }
+
+}
+
+void a12(std::vector<std::vector<bool> > &pole, int &N) {
+    for (int i = 0; i < N; ++i) {
+        if (i%2==1) {
+            for (int j = 0; j < N; ++j) {
+                if (j%2==0){
+                    pole[i][j]=true;
+                }
+            }
+        } else{
+            for (int j = 0; j < N; ++j) {
+                if (j%2==1){
+                    pole[i][j]=true;
+                }
+            }
+        }
+    }
+
+}
+
+void a13(std::vector<std::vector<bool> > &pole, int &N) {
+    int tmp=N/2;
+    for (int i = 0; i < N; ++i) {
+
+    }
+
+}
+
 
 
 
@@ -198,6 +242,13 @@ int main() {
     a10(pole, N);
     print(pole, N);
 
+    clean(pole, N);
+    a11(pole, N);
+    print(pole, N);
+
+    clean(pole, N);
+    a12(pole, N);
+    print(pole, N);
 
 
 
