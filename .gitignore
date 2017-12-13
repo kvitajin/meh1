@@ -1,0 +1,7 @@
+# Idea folders
+.idea
+cmake-build-debug
+
+# Binaries
+*.out
+*.exe
