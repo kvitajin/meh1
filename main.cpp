@@ -280,30 +280,40 @@ void a18(std::vector<std::vector<bool> > &pole, int &N) {
 }
 
 void a19(std::vector<std::vector<bool> > &pole, int &N) {
-    int tmp=N/2;
+    int tmp = N / 2;
 
-    for (int k = 0; k < tmp; ++k) {
-        for (int j = 0; j < N-k; ++j) {
-            pole[k][j]= true;
+    /*for (int k = 0; k < tmp; ++k) {
+        for (int j = 0; j < N - k; ++j) {
+            pole[k][j] = true;
         }
         for (int i = 0; i < k; ++i) {
-            pole[k][i]= false;
+            pole[k][i] = false;
         }
     }
     for (int l = tmp; l < N; ++l) {
-        for (int i = 0; i < l+1; ++i) {
-            pole[l][i]= true;
+        for (int i = 0; i < l + 1; ++i) {
+            pole[l][i] = true;
         }
-        for (int i = 0; i < N-l-1; ++i) {
-            pole[l][i]= false;
+        for (int i = 0; i < N - l - 1; ++i) {
+            pole[l][i] = false;
+        }
+    }*/
+    for (int k = 0; k < tmp; ++k) {
+        for (int j = k; j < N - k; ++j) {
+            pole[k][j] = true;
         }
     }
+    for (int l = tmp, j=0; l < N; ++l, ++j) {
+        for (int i = tmp-j-1; i < l + 1; ++i) {
+            pole[l][i] = true;
+        }
 
-
+    }
 }
 
+void a20(std::vector<std::vector<bool> > &pole, int &N){
 
-
+}
 
 int main() {
     std::vector<std::vector<bool> > pole;
@@ -383,13 +393,17 @@ int main() {
     a17(pole, N);
     print(pole, N);
 
-    clean(pole, N);
+    clean(pole, N);         //todo
     a18(pole, N);
     print(pole, N);
 
     clean(pole, N);
     a19(pole, N);
     print(pole, N);
+
+    /*clean(pole, N);
+    a20(pole, N);
+    print(pole, N);*/
 
     return 0;
 }
